@@ -31,7 +31,7 @@ function validatePassword(username, original_password, retype_password){
     let different = 0;
     if (original_password.length == retype_password.length){ // Check if the lengths of the original and retyped passwords are the same
         if (retype_password.length < 8){ // Check if the length of the password is less than 8
-            console.log("Insufficient Number of Characters!");
+            return "Insufficient Number of Characters!";
         } else {
             // Iterate through each character of the retyped password
             for (let retype_letter = 0; retype_letter < retype_password.length; retype_letter++){
@@ -59,10 +59,10 @@ function validatePassword(username, original_password, retype_password){
                 user_info.name = username;
                 user_info.newpassword = reversedPassword;
                 return user_info;
-            } else if (different == 1) {
+            } else if (different == 1 && number_present == 1) {
                 return "Wrong Password!";
             } else {
-                return "Invalid Password";
+                return "Invalid Password!";
             }
         }
     } else {
